@@ -27,8 +27,8 @@ public class FigureMenus extends JMenuBar implements ActionListener
         figures[0] = new JMenuItem("Rect");
         figures[1] = new JMenuItem("fillRect");
         figures[2] = new JMenuItem("Line");
-        figures[3] = new JMenuItem("Oval");
-        figures[4] = new JMenuItem("FillOval");
+        figures[3] = new JMenuItem("Circle");
+        figures[4] = new JMenuItem("FillCircle");
         figures[5] = new JMenuItem("Triangle");
 
         for (i = 0; i < 6; i++)
@@ -60,10 +60,10 @@ public class FigureMenus extends JMenuBar implements ActionListener
             case "Line":
                 model.setFigureType(FigureType.LINE);
                 break;
-            case "Oval":
+            case "Circle":
                 model.setFigureType(FigureType.CIRCLE);
                 break;
-            case "FillOval":
+            case "FillCircle":
                 model.setFigureType(FigureType.FILL_CIRCLE);
                 break;
             case "Triangle":
