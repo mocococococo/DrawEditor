@@ -1,14 +1,21 @@
-import javax.swing.*;
+package color;
+
+
 import java.awt.*;
 import java.awt.event.*;
+import javax.swing.*;
 
-public class Makecolor extends JFrame implements AdjustmentListener {
+import draw.DrawModel;
+import draw.FigureType;
+
+public class MakeColor extends JFrame implements AdjustmentListener {
     JScrollBar r,g,b;
-    protected DrawModel model;
-    protected int R,G,B;
-    protected JLabel label;
+    private DrawModel model;
+    private int R,G,B;
+    private JLabel label;
       
-    Makecolor(DrawModel m) {
+    public MakeColor(DrawModel m)
+    {
         model = m;
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         this.setTitle("subWindow");
@@ -36,32 +43,34 @@ public class Makecolor extends JFrame implements AdjustmentListener {
         this.setVisible(true);
     }
   
-    public void showFigure() {
+    public void showFigure()
+    {
         String t = "Rect";
-        if(model.now == 0) {
-          t = "Rect";
-        } else if(model.now == 1) {
-          t = "fillRect";
-        } else if(model.now == 2) {
-          t = "Line";
-        } else if(model.now == 3) {
-          t = "Oval";
-        } else if(model.now == 4) {
-          t = "fillOval";
-        } else if(model.now == 5) {
-          t = "Triangle";
+        if(model.getFigureType() == FigureType.RECTANGLE) {
+            t = "Rect";
+        } else if(model.getFigureType() == FigureType.FILL_RECTANGLE) {
+            t = "fillRect";
+        } else if(model.getFigureType() == FigureType.LINE) {
+            t = "Line";
+        } else if(model.getFigureType() == FigureType.CIRCLE) {
+            t = "Oval";
+        } else if(model.getFigureType() == FigureType.FILL_CIRCLE) {
+            t = "fillOval";
+        } else if(model.getFigureType() == FigureType.TRIANGLE) {
+            t = "Triangle";
         }
         label.setText(t);
         this.setVisible(true);
     }
   
-    public void adjustmentValueChanged(AdjustmentEvent e) {
+    public void adjustmentValueChanged(AdjustmentEvent e)
+    {
         R = r.getValue();
         G = g.getValue();
         B = b.getValue();
         System.out.print("R = "); System.out.println(R);
         System.out.print("G = "); System.out.println(G);
         System.out.print("B = "); System.out.println(B);
-        model.currentColor = new Color(R,G,B);
+        model.setColor(new Color(R, G, B));
     }
 }

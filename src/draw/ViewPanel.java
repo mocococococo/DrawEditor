@@ -1,5 +1,10 @@
-import javax.swing.*;
+package draw;
+
 import java.awt.*;
+import javax.swing.*;
+
+import figures.Figure;
+
 import java.util.*;
 
 public class ViewPanel extends JPanel implements Observer {

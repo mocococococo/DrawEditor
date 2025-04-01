@@ -1,6 +1,8 @@
+package draw;
+
 import java.awt.event.*;
 
-class DrawController implements MouseListener, MouseMotionListener {
+public class DrawController implements MouseListener, MouseMotionListener {
     protected DrawModel model;
     protected int dragStartX, dragStartY;
     public DrawController(DrawModel a) {

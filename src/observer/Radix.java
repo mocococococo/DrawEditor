@@ -1,6 +1,8 @@
-import javax.swing.*;
+package observer;
+
 import java.awt.*;
 import java.awt.event.*;
+import javax.swing.*;
 
 public class Radix extends JFrame implements ActionListener {
     private JTextField hex, dec;
