@@ -3,14 +3,14 @@ package draw;
 import java.awt.event.*;
 import javax.swing.*;
 
-import color.MakeColor;
+import color.ManageColor;
 
 public class FigureMenus extends JMenuBar implements ActionListener
 {
     protected DrawModel model;
-    protected MakeColor color;
+    protected ManageColor color;
 
-    public FigureMenus(DrawModel m, DrawController c, MakeColor r)
+    public FigureMenus(DrawModel m, DrawController c, ManageColor r)
     {
         color = r;
         model = m;

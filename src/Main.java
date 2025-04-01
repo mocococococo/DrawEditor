@@ -1,7 +1,7 @@
 import java.awt.*;
 import javax.swing.*;
 
-import color.MakeColor;
+import color.ManageColor;
 import draw.DrawController;
 import draw.DrawModel;
 import draw.FigureMenus;
@@ -12,13 +12,13 @@ public class Main extends JFrame {
     DrawModel model;
     ViewPanel view;
     FigureMenus menu;
-    MakeColor color;
+    ManageColor color;
     DrawController controller;
     public Main() {
         model = new DrawModel();
         controller = new DrawController(model);
         view = new ViewPanel(model, controller);
-        color = new MakeColor(model);
+        color = new ManageColor(model);
         menu = new FigureMenus(model, controller, color);
         this.setBackground(Color.black);
         this.setTitle("Draw Editor");

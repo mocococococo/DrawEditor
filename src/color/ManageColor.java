@@ -8,13 +8,13 @@ import javax.swing.*;
 import draw.DrawModel;
 import draw.FigureType;
 
-public class MakeColor extends JFrame implements AdjustmentListener {
+public class ManageColor extends JFrame implements AdjustmentListener {
     JScrollBar r,g,b;
     private DrawModel model;
     private int R,G,B;
     private JLabel label;
       
-    public MakeColor(DrawModel m)
+    public ManageColor(DrawModel m)
     {
         model = m;
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
