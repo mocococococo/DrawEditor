@@ -35,19 +35,13 @@ public abstract class Figure {
         return this.color;
     }
 
-    public void reshape(int x1, int y1, int x2, int y2, FigureType now)
+    public void reshape(int x1, int y1, int x2, int y2)
     {
         int newx, newy, newh, neww;
         newx = Math.min(x1, x2);
         newy = Math.min(y1, y2);
         neww = Math.abs(x1 - x2);
         newh = Math.abs(y1 - y2);
-        if (now == FigureType.LINE || now == FigureType.TRIANGLE) {
-            newx = x1;
-            newy = y1;
-            neww = x2;
-            newh = y2;
-        }
         setLocation(newx, newy);
         setSize(neww, newh);
     }
