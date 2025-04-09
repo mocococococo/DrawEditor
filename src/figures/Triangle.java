@@ -9,13 +9,27 @@ public class Triangle extends Figure
     {
         super(x, y, w, h, c);
     }
+    
+    @Override
+    public void reshape(int x1, int y1, int x2, int y2)
+    {
+        int baseLeftX = x;
+        int baseLeftY = height;
+        int baseRightX = width;
+        int baseRightY = height;
+        
+        int sideLength = baseRightX - baseLeftX;
+        
+        int apexX = baseLeftX + sideLength / 2;
+        int apexY = baseLeftY - (int)(sideLength * Math.sqrt(3) / 2);
+        
+        setLocation(apexX, apexY);
+        setSize(baseRightX - baseLeftX, baseLeftY - apexY);
+    }
 
     @Override
     public void draw(Graphics g)
     {
         super.draw(g);
-        g.drawLine(x, y, width, height);
-        g.drawLine(x, y, Math.min(x,width) + Math.abs(width-x)/2, height/2 + Math.abs(height-y)/2);
-        g.drawLine(Math.min(x,width) + Math.abs(width-x)/2, height/2 + Math.abs(height-y)/2, width, height);
     }
 }

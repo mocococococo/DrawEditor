@@ -45,6 +45,7 @@ public abstract class Figure {
         setLocation(newx, newy);
         setSize(neww, newh);
     }
+    
     public void draw(Graphics g)
     {
         g.setColor(this.color);

@@ -2,7 +2,6 @@ package figures;
 
 import java.awt.*;
 
-import draw.FigureType;
 
 public class Line extends Figure
 {
