@@ -10,6 +10,7 @@ public class Triangle extends Figure
     public Triangle(int x, int y, int w, int h, Color c)
     {
         super(x, y, w, h, c);
+        setCoordinate(x, y, w, h);
     }
 
     @Override
@@ -22,12 +23,13 @@ public class Triangle extends Figure
         newh = y2;
         setLocation(newx, newy);
         setSize(neww, newh);
+        setCoordinate(newx, newy, neww, newh);
     }
 
-    @Override
-    public void draw(Graphics g)
+    private void setCoordinate(int x, int y, int width, int height)
     {
-        super.draw(g);
+        this.x = x;
+        this.y = y;
         if (x != width && y != height) {
             double dx = width - x;
             double dy = height - y;
@@ -46,7 +48,12 @@ public class Triangle extends Figure
             this.apexX = x;
             this.apexY = y;
         }
+    }
 
+    @Override
+    public void draw(Graphics g)
+    {
+        super.draw(g);
         g.drawLine(x, y, width, height);
         g.drawLine(this.x, this.y, this.apexX, this.apexY);
         g.drawLine(this.apexX, this.apexY, this.width, this.height);
