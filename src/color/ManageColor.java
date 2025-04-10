@@ -68,9 +68,9 @@ public class ManageColor extends JFrame implements AdjustmentListener {
         R = r.getValue();
         G = g.getValue();
         B = b.getValue();
-        System.out.print("R = "); System.out.println(R);
-        System.out.print("G = "); System.out.println(G);
-        System.out.print("B = "); System.out.println(B);
+        // System.out.print("R = "); System.out.println(R);
+        // System.out.print("G = "); System.out.println(G);
+        // System.out.print("B = "); System.out.println(B);
         model.setColor(new Color(R, G, B));
     }
 }
