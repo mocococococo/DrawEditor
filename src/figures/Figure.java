@@ -2,8 +2,6 @@ package figures;
 
 import java.awt.*;
 
-import draw.FigureType;
-
 
 public abstract class Figure {
     protected int x, y, width, height;
