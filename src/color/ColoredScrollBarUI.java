@@ -1,8 +1,8 @@
 package color;
 
+import java.awt.*;
 import javax.swing.*;
 import javax.swing.plaf.basic.BasicScrollBarUI;
-import java.awt.*;
 
 public class ColoredScrollBarUI extends BasicScrollBarUI
 {
@@ -26,5 +26,15 @@ public class ColoredScrollBarUI extends BasicScrollBarUI
         g2.setColor(thumbColor);
         g2.fillRoundRect(0, 0, thumbBounds.width, thumbBounds.height, 10, 10);
         g2.dispose();
+    }
+
+    @Override
+    protected void paintDecreaseHighlight(Graphics g) {
+        // 何もしない → クリック時のハイライトを描画しない
+    }
+
+    @Override
+    protected void paintIncreaseHighlight(Graphics g) {
+        // 何もしない → クリック時のハイライトを描画しない
     }
 }
