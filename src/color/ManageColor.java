@@ -1,12 +1,11 @@
 package color;
 
 
+import draw.DrawModel;
+import draw.FigureType;
 import java.awt.*;
 import java.awt.event.*;
 import javax.swing.*;
-
-import draw.DrawModel;
-import draw.FigureType;
 
 public class ManageColor extends JFrame implements AdjustmentListener {
     JScrollBar r,g,b;
@@ -21,9 +20,9 @@ public class ManageColor extends JFrame implements AdjustmentListener {
         this.setTitle("subWindow");
         this.setSize(400, 180);
     
-        r = new JScrollBar(JScrollBar.HORIZONTAL, 0, 30, 0, 260);
-        g = new JScrollBar(JScrollBar.HORIZONTAL, 0, 30, 0, 260);
-        b = new JScrollBar(JScrollBar.HORIZONTAL, 0, 30, 0, 260);
+        r = new JScrollBar(JScrollBar.HORIZONTAL, 0, 30, 0, 285);
+        g = new JScrollBar(JScrollBar.HORIZONTAL, 0, 30, 0, 285);
+        b = new JScrollBar(JScrollBar.HORIZONTAL, 0, 30, 0, 285);
         r.addAdjustmentListener(this);
         g.addAdjustmentListener(this);
         b.addAdjustmentListener(this);
@@ -73,22 +72,14 @@ public class ManageColor extends JFrame implements AdjustmentListener {
         G = g.getValue();
         B = b.getValue();
         model.setColor(new Color(R, G, B));
+
+        System.out.println("R: " + R + " G: " + G + " B: " + B);
         
-        if (r.getUI() instanceof ColoredScrollBarUI)
-        {
-            ((ColoredScrollBarUI)r.getUI()).setThumbColor(new Color(R, 0, 0));
-            r.repaint();
-        }
-        if (g.getUI() instanceof ColoredScrollBarUI)
-        {
-            ((ColoredScrollBarUI)g.getUI()).setThumbColor(new Color(0, G, 0));
-            g.repaint();
-        }
-        if (b.getUI() instanceof ColoredScrollBarUI)
-        {
-            ((ColoredScrollBarUI)b.getUI()).setThumbColor(new Color(0, 0, B));
-            b.repaint();
-        }
-        
+        ((ColoredScrollBarUI)r.getUI()).setThumbColor(new Color(R, 0, 0));
+        r.repaint();
+        ((ColoredScrollBarUI)g.getUI()).setThumbColor(new Color(0, G, 0));
+        g.repaint();
+        ((ColoredScrollBarUI)b.getUI()).setThumbColor(new Color(0, 0, B));
+        b.repaint();
     }
 }
