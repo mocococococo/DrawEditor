@@ -29,12 +29,10 @@ public class ColoredScrollBarUI extends BasicScrollBarUI
     }
 
     @Override
-    protected void paintDecreaseHighlight(Graphics g) {
-        // 何もしない → クリック時のハイライトを描画しない
-    }
+    protected void paintDecreaseHighlight(Graphics g)
+    {}
 
     @Override
-    protected void paintIncreaseHighlight(Graphics g) {
-        // 何もしない → クリック時のハイライトを描画しない
-    }
+    protected void paintIncreaseHighlight(Graphics g) 
+    {}
 }
