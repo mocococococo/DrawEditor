@@ -21,12 +21,16 @@ public class ManageColor extends JFrame implements AdjustmentListener {
         this.setTitle("subWindow");
         this.setSize(400, 180);
     
-        r = new JScrollBar(JScrollBar.HORIZONTAL, 0, 5, 0, 260);
-        g = new JScrollBar(JScrollBar.HORIZONTAL, 0, 5, 0, 260);
-        b = new JScrollBar(JScrollBar.HORIZONTAL, 0, 5, 0, 260);
+        r = new JScrollBar(JScrollBar.HORIZONTAL, 0, 30, 0, 260);
+        g = new JScrollBar(JScrollBar.HORIZONTAL, 0, 30, 0, 260);
+        b = new JScrollBar(JScrollBar.HORIZONTAL, 0, 30, 0, 260);
         r.addAdjustmentListener(this);
         g.addAdjustmentListener(this);
         b.addAdjustmentListener(this);
+
+        r.setUI(new ColoredScrollBarUI(new Color(r.getValue(), 0, 0)));
+        g.setUI(new ColoredScrollBarUI(new Color(0, g.getValue(), 0)));
+        b.setUI(new ColoredScrollBarUI(new Color(0, 0, b.getValue())));
     
         this.setLayout(new GridLayout(4, 2));
         this.add(new JLabel("RED"));
@@ -68,9 +72,23 @@ public class ManageColor extends JFrame implements AdjustmentListener {
         R = r.getValue();
         G = g.getValue();
         B = b.getValue();
-        // System.out.print("R = "); System.out.println(R);
-        // System.out.print("G = "); System.out.println(G);
-        // System.out.print("B = "); System.out.println(B);
         model.setColor(new Color(R, G, B));
+        
+        if (r.getUI() instanceof ColoredScrollBarUI)
+        {
+            ((ColoredScrollBarUI)r.getUI()).setThumbColor(new Color(R, 0, 0));
+            r.repaint();
+        }
+        if (g.getUI() instanceof ColoredScrollBarUI)
+        {
+            ((ColoredScrollBarUI)g.getUI()).setThumbColor(new Color(0, G, 0));
+            g.repaint();
+        }
+        if (b.getUI() instanceof ColoredScrollBarUI)
+        {
+            ((ColoredScrollBarUI)b.getUI()).setThumbColor(new Color(0, 0, B));
+            b.repaint();
+        }
+        
     }
 }
