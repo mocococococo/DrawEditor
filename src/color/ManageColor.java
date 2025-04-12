@@ -23,6 +23,7 @@ public class ManageColor extends JFrame implements AdjustmentListener {
         r = new JScrollBar(JScrollBar.HORIZONTAL, 0, 30, 0, 285);
         g = new JScrollBar(JScrollBar.HORIZONTAL, 0, 30, 0, 285);
         b = new JScrollBar(JScrollBar.HORIZONTAL, 0, 30, 0, 285);
+
         r.addAdjustmentListener(this);
         g.addAdjustmentListener(this);
         b.addAdjustmentListener(this);

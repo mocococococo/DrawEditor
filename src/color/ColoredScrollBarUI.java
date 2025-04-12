@@ -24,9 +24,14 @@ public class ColoredScrollBarUI extends BasicScrollBarUI
         Graphics2D g2 = (Graphics2D) g.create();
         g2.translate(thumbBounds.x, thumbBounds.y);
         g2.setColor(thumbColor);
-        g2.fillRoundRect(0, 0, thumbBounds.width, thumbBounds.height, 10, 10);
+        g2.fillRect(1, 1, thumbBounds.width-2, thumbBounds.height-2);
         g2.dispose();
     }
+
+    @Override
+    protected Dimension getMinimumThumbSize() {
+        return new Dimension(16, 30); // 幅を 16 ピクセル以上にする 等
+}
 
     @Override
     protected void paintDecreaseHighlight(Graphics g)
